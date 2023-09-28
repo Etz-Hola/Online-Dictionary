@@ -33,7 +33,7 @@ body {
 
 .search-box input {
   padding: 5px;
-  width: 70px;
+  width: 150px;
   border: none;
   outline: none;
   border-bottom: 3px solid coral;
@@ -60,3 +60,33 @@ body {
   justify-content: space-between;
   margin-top: 80px;
 }
+
+.result button {
+    cursor: pointer;
+    background-color: transparent;
+    color: #ae9cff;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.result .details {
+    display: flex;
+    gap: 10px;
+    color: #b3b6d4;
+    margin: 5px 0 20px 0;
+    font-size: 14px;
+}
+
+.word-meaning {
+    color: #575a7b;
+}
+
+.word-example {
+    font-style: italic;
+    color: #575a7b;
+    /* border-radius: 5px solid #ae9cff; */
+    padding-left: 20px;
+    margin-top: 30px;
+}
+

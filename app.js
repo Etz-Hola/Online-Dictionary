@@ -4,6 +4,8 @@ const result = document.getElementById("result");
 const sound = document.getElementById("sound");
 const btn = document.getElementById("search-btn");
 
+const speech = new SpeechSynthesisUtterance();
+
 
   // Event listener for the search button
 btn.addEventListener("click", () => {
@@ -34,8 +36,16 @@ btn.addEventListener("click", () => {
             <p class="word-example">
             ${data[0].meanings[0].definitions[0].example || ""}
             </p>        
-        `
+        `;
+
+        let audioOutput = document.querySelector('.fa-volume-high')
+        audioOutput.addEventListener('click', () => {
+            speech.text = inputWord
+            speechSynthesis.speak(speech);
+        })
     })
+
+
     .catch(() => {
         result.innerHTML = `
         <h2 class="error">Couldn't Find The Word: ${inputWord} HOLA Get Out Here</h2>

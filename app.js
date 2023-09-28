@@ -15,6 +15,8 @@ btn.addEventListener("click", () => {
         console.log(data);
         console.log(data[0].meanings[0].partOfSpeech);
         console.log(data[0].phonetic);
+        console.log(data[0].meanings[0].definitions[0].definition);
+        console.log(data[0].meanings[0].definitions[0].example);
         result.innerHTML = `
         <div class="word">
                 <h3>${inputWord}</h3>
@@ -27,11 +29,16 @@ btn.addEventListener("click", () => {
                 <p>/${data[0].phonetic}/</p>
             </div>
             <p class="word-meaning">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, beatae?
+            ${data[0].meanings[0].definitions[0].definition}
             </p>
             <p class="word-example">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, beatae?
+            ${data[0].meanings[0].definitions[0].example || ""}
             </p>        
+        `
+    })
+    .catch(() => {
+        result.innerHTML = `
+        <h2 class="error">Couldn't Find The Word: ${inputWord} HOLA Get Out Here</h2>
         `
     })
 });
